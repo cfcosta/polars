@@ -1093,7 +1093,11 @@ impl<'df, 'selection_str> GroupBy<'df, 'selection_str> {
                         "last" => finish_agg!(self, "{}_last", agg_last, agg_col, cols),
                         "n_unique" => {
                             finish_agg_opt!(self, "{}_n_unique", agg_n_unique, agg_col, cols)
-                        }
+                        },
+                        "cummin" => finish_agg_opt!(self, "{}_min", agg_min, agg_col, cols),
+                        "cummax" => finish_agg_opt!(self, "{}_max", agg_max, agg_col, cols),
+                        "cumsum" => finish_agg_opt!(self, "{}_sum", agg_sum, agg_col, cols),
+                        "cumprod" => finish_agg_opt!(self, "{}_sum", agg_sum, agg_col, cols),
                         "median" => finish_agg_opt!(self, "{}_median", agg_median, agg_col, cols),
                         "std" => finish_agg_opt!(self, "{}_std", agg_std, agg_col, cols),
                         "var" => finish_agg_opt!(self, "{}_var", agg_var, agg_col, cols),
